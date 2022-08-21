@@ -36,6 +36,7 @@ private:
     int paddle_dir; // Direction of paddle.
 
     Vector2 ball_pos;
+    Vector2 ball_vel;
     Vector2 paddle_pos;
 };
 
