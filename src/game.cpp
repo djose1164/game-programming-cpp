@@ -50,8 +50,12 @@ bool Game::initialize()
 
     ball_pos.x = 1024.f/2.f;
     ball_pos.y = 768.f/2.f;
+
     paddle_pos.x = 10.f;
     paddle_pos.y = 768.f/2.f;
+
+    ball_vel.x = -200.f;
+    ball_vel.y = 235.f;
 
     return true;
 }
@@ -91,7 +95,6 @@ void Game::process_input()
         paddle_dir -= 1;
     if (state[SDL_SCANCODE_S])
         paddle_dir += 1;
-    SDL_Log("paddle_dir: %d", paddle_dir);
 }
 
 void Game::update_game()
@@ -102,6 +105,7 @@ void Game::update_game()
     
     auto delta_time = (SDL_GetTicks64() - ticks_count)/1000.f;
     ticks_count = SDL_GetTicks64();
+
 
     if (delta_time > .05f) // Clamp delta time value
         delta_time = .05f;
@@ -115,6 +119,32 @@ void Game::update_game()
         else if (paddle_pos.y > 768.f - paddleH/2.f - thickness)
             paddle_pos.y = 768.f - paddleH/2.f - thickness;
     }
+
+    ball_pos.x += ball_vel.x * delta_time;
+    ball_pos.y += ball_vel.y * delta_time;
+
+    // Collision with top wall
+    if (ball_pos.y <= thickness && ball_vel.y < 0.f)
+        ball_vel.y *= -1;
+    //Collision with bottom wall
+    if (ball_pos.y > 768 - thickness && ball_vel.y > 0.f)
+        ball_vel.y *= -1;
+    // Collision with right wall
+    if (ball_pos.x > 1024 - thickness && ball_pos.y > 0.f)
+        ball_vel.x *= -1;
+
+    auto diff = ball_pos.y - paddle_pos.y;
+    diff = diff > 0.f ? diff : -diff;
+
+    if (
+        diff <= paddleH/2.f && // our y-difference is small enough and
+        ball_pos.x >= 20.f && ball_pos.x <= 25.f && // ball is at correct x-position
+        ball_vel.x < 0.f // the ball is moving to the left
+    )
+        ball_vel.x *= -1;
+    
+    if (ball_pos.x < 0.f)
+        is_running = false;
 }
 
 void Game::generate_output()
