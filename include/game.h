@@ -2,11 +2,18 @@
 #define GAME_H
 
 #include <SDL2/SDL.h>
+#include <vector>
 
 struct Vector2
 {
     float x;
     float y;
+};
+
+struct Ball
+{
+    Vector2 position;
+    Vector2 velocity;
 };
 
 class Game
@@ -36,8 +43,8 @@ private:
     int paddle_dir; // Direction of paddle.
     int second_paddle_dir;
 
-    Vector2 ball_pos;
-    Vector2 ball_vel;
+    std::vector<Ball> balls;
+    
     Vector2 paddle_pos;
     Vector2 second_paddle_pos;
 };
