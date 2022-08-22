@@ -34,10 +34,12 @@ private:
     bool is_running; // Game should continue to run.
 
     int paddle_dir; // Direction of paddle.
+    int second_paddle_dir;
 
     Vector2 ball_pos;
     Vector2 ball_vel;
     Vector2 paddle_pos;
+    Vector2 second_paddle_pos;
 };
 
 #endif // GAME_H

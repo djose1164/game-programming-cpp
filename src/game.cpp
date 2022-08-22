@@ -1,7 +1,9 @@
 #include "game.h"
 
 constexpr unsigned thickness{15};
-constexpr double paddleH{100.};
+constexpr double paddle_height{100.};
+constexpr unsigned screen_width{1024};
+constexpr unsigned screen_height{768};
 
 Game::Game()
     : window{nullptr}
@@ -24,8 +26,8 @@ bool Game::initialize()
         "Game programming in C++", // title
         100,
         50,
-        1024,
-        768,
+        screen_width,
+        screen_height,
         0 // flags, 0 for none
     );
 
@@ -48,11 +50,14 @@ bool Game::initialize()
         return false;
     }
 
-    ball_pos.x = 1024.f/2.f;
-    ball_pos.y = 768.f/2.f;
+    ball_pos.x = screen_width/2.f;
+    ball_pos.y = screen_height/2.f;
 
     paddle_pos.x = 10.f;
-    paddle_pos.y = 768.f/2.f;
+    paddle_pos.y = screen_height/2.f;
+
+    second_paddle_pos.x = screen_width - 25.f;
+    second_paddle_pos.y = screen_height/2.f;
 
     ball_vel.x = -200.f;
     ball_vel.y = 235.f;
@@ -95,6 +100,12 @@ void Game::process_input()
         paddle_dir -= 1;
     if (state[SDL_SCANCODE_S])
         paddle_dir += 1;
+
+    second_paddle_dir = 0;
+    if(state[SDL_SCANCODE_I])
+        --second_paddle_dir;
+    if (state[SDL_SCANCODE_K])
+        ++second_paddle_dir;
 }
 
 void Game::update_game()
@@ -110,14 +121,25 @@ void Game::update_game()
     if (delta_time > .05f) // Clamp delta time value
         delta_time = .05f;
 
-    if (paddle_dir)
+    // Set upper and lower bound to paddle
+    if (paddle_dir) // if non-zero
     {
         paddle_pos.y += paddle_dir * 300.f * delta_time;
     
-        if (paddle_pos.y < (paddleH/2.f + thickness))
-            paddle_pos.y = paddleH/2.f + thickness;
-        else if (paddle_pos.y > 768.f - paddleH/2.f - thickness)
-            paddle_pos.y = 768.f - paddleH/2.f - thickness;
+        if (paddle_pos.y < (paddle_height/2.f + thickness))
+            paddle_pos.y = paddle_height/2.f + thickness;
+        else if (paddle_pos.y > screen_height - paddle_height/2.f - thickness)
+            paddle_pos.y = screen_height - paddle_height/2.f - thickness;
+    }
+
+    // Set upper and lower bound to paddle
+    if (second_paddle_dir) // if non-zero
+    {
+        second_paddle_pos.y += second_paddle_dir * 300.f * delta_time;
+        if (second_paddle_pos.y < paddle_height/2.f + thickness)
+            second_paddle_pos.y = paddle_height/2.f + thickness;
+        else if (second_paddle_pos.y > screen_height - (paddle_height/2.f - thickness))
+            second_paddle_pos.y = screen_height - paddle_height/2.f - thickness;
     }
 
     ball_pos.x += ball_vel.x * delta_time;
@@ -130,20 +152,31 @@ void Game::update_game()
     if (ball_pos.y > 768 - thickness && ball_vel.y > 0.f)
         ball_vel.y *= -1;
     // Collision with right wall
-    if (ball_pos.x > 1024 - thickness && ball_pos.y > 0.f)
-        ball_vel.x *= -1;
+    /*if (ball_pos.x > 1024 - thickness && ball_pos.y > 0.f)
+        ball_vel.x *= -1;*/
 
     auto diff = ball_pos.y - paddle_pos.y;
     diff = diff > 0.f ? diff : -diff;
 
     if (
-        diff <= paddleH/2.f && // our y-difference is small enough and
+        diff <= paddle_height/2.f && // our y-difference is small enough and
         ball_pos.x >= 20.f && ball_pos.x <= 25.f && // ball is at correct x-position
         ball_vel.x < 0.f // the ball is moving to the left
     )
         ball_vel.x *= -1;
+    // Second paddle collation
+    diff = ball_pos.y - second_paddle_pos.y;
+    diff = diff ? diff : -diff;
+    if (
+        diff <= paddle_height/2.f &&
+        ball_pos.x >= screen_width - 30.f && ball_pos.x <= screen_width - 25.f &&
+        ball_vel.x > 0.f
+    )
+        ball_vel.x *= -1;
     
     if (ball_pos.x < 0.f)
+        is_running = false;
+    else if (ball_pos.x > screen_width)
         is_running = false;
 }
 
@@ -188,20 +221,23 @@ void Game::generate_output()
     wall.y = 768 - thickness;
     SDL_RenderFillRect(renderer, &wall);
 
-    // Draw right wall
-    wall.x = 1024 - thickness;
-    wall.y = 0;
-    wall.w = thickness;
-    wall.h = 1024;
-    SDL_RenderFillRect(renderer, &wall);
-
+    // Left paddle
     SDL_Rect paddle{
         static_cast<int>(paddle_pos.x),
-        static_cast<int>(paddle_pos.y - paddleH/2),
+        static_cast<int>(paddle_pos.y - paddle_height/2),
         thickness,
-        static_cast<int>(paddleH)
+        static_cast<int>(paddle_height)
     };
     SDL_RenderFillRect(renderer, &paddle);
+
+    // Right paddle
+    SDL_Rect second_paddle{
+        static_cast<int>(second_paddle_pos.x),
+        static_cast<int>(second_paddle_pos.y - paddle_height/2),
+        thickness,
+        static_cast<int>(paddle_height)
+    };
+    SDL_RenderFillRect(renderer, &second_paddle);
 
     SDL_Rect ball{
         static_cast<int>(ball_pos.x - thickness/2),
