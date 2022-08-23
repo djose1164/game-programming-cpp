@@ -23,7 +23,7 @@ void BGSpriteComponent::textures(const std::vector<SDL_Texture *> &textures)
 
 void BGSpriteComponent::update(const float &delta_time)
 {
-    SpriteComponent::update(delta_time);
+    // SpriteComponent::update(delta_time);
 
     for (auto &bg: bg_textures)
     {

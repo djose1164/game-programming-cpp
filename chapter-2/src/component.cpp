@@ -17,8 +17,3 @@ int Component::update_order() const
 {
     return update_order_;
 }
-
-void Component::update(const float &delta_time)
-{
-
-}

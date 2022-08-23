@@ -7,7 +7,7 @@ AnimatedSpriteComponent::AnimatedSpriteComponent(Actor *owner, int draw_order)
 
 void AnimatedSpriteComponent::update(const float &delta_time)
 {
-    SpriteComponent::update(delta_time);
+    // SpriteComponent::update(delta_time);
 
     if (animated_textures_.size() > 0)
         current_frame += fps() * delta_time;

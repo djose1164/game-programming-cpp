@@ -8,7 +8,7 @@ public:
 
     virtual ~Component();
 
-    virtual void update(const float &delta_time);
+    virtual void update(const float &delta_time) = 0;
 
     int update_order() const;
 

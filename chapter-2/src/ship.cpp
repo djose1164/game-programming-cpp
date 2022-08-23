@@ -35,7 +35,7 @@ void Ship::process_keyboard(const u_int8_t *state)
 
 void Ship::update_actor(const float &delta_time)
 {
-    Actor::update_actor(delta_time);
+    // Actor::update_actor(delta_time);
 
     Vector2 pos{position()};
     pos.x += right_speed() * delta_time;
