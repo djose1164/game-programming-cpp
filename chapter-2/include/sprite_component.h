@@ -14,6 +14,11 @@ public:
 
     virtual void draw(SDL_Renderer *renderer);
 
+    /**
+     * @brief Setup `texture_width_` and `texture_height_`.
+     * 
+     * @param texture Texture to get its dimensions.
+     */
     virtual void sprite_texture(SDL_Texture *texture);
 
     int draw_order() const;

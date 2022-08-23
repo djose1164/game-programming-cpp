@@ -1,5 +1,4 @@
 #include "game.h"
-#include "actor.h"
 #include "sprite_component.h"
 #include "ship.h"
 #include "bg_sprite_component.h"

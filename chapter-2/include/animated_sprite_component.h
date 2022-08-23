@@ -16,9 +16,6 @@ public:
     // Set textures used for animation
     void animated_textures(const std::vector<SDL_Texture *> &textures);
 
-
-    void set_fps(const float &fps);
-
     const float &fps() const;
 
 private:
