@@ -43,7 +43,6 @@ void SpriteComponent::sprite_texture(SDL_Texture *texture)
         &texture_width_,
         &texture_height_
     );
-    SDL_Log("texture_width: %d, texture_height: %d", texture_width(), texture_height());
 }
 
 void SpriteComponent::draw(SDL_Renderer *renderer)
