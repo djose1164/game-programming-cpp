@@ -23,8 +23,6 @@ public:
     int texture_height() const;
 
 protected:
-    class Actor *owner;
-
     SDL_Texture *sprite_texture_;
 
     int draw_order_;

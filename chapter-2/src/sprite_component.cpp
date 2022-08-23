@@ -4,7 +4,6 @@
 
 SpriteComponent::SpriteComponent(Actor *actor, int draw_order)
     : Component{actor, draw_order}
-    , owner{actor}
     , sprite_texture_{nullptr}
     , draw_order_{draw_order}
     , texture_width_{0}
