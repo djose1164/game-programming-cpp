@@ -1,0 +1,15 @@
+make --dry-run --always-make --keep-going --print-directory
+make: Entering directory '/home/djose1164/game-programming-cpp/chapter-2'
+mkdir -p output
+g++ -std=c++20 -pedantic -Wall -Wextra -g `sdl2-config --libs --cflags` -lSDL2_image -Iinclude -c src/actor.cpp  -o src/actor.o
+g++ -std=c++20 -pedantic -Wall -Wextra -g `sdl2-config --libs --cflags` -lSDL2_image -Iinclude -c src/animated_sprite_component.cpp  -o src/animated_sprite_component.o
+g++ -std=c++20 -pedantic -Wall -Wextra -g `sdl2-config --libs --cflags` -lSDL2_image -Iinclude -c src/bg_sprite_component.cpp  -o src/bg_sprite_component.o
+g++ -std=c++20 -pedantic -Wall -Wextra -g `sdl2-config --libs --cflags` -lSDL2_image -Iinclude -c src/component.cpp  -o src/component.o
+g++ -std=c++20 -pedantic -Wall -Wextra -g `sdl2-config --libs --cflags` -lSDL2_image -Iinclude -c src/game.cpp  -o src/game.o
+g++ -std=c++20 -pedantic -Wall -Wextra -g `sdl2-config --libs --cflags` -lSDL2_image -Iinclude -c src/main.cpp  -o src/main.o
+g++ -std=c++20 -pedantic -Wall -Wextra -g `sdl2-config --libs --cflags` -lSDL2_image -Iinclude -c src/ship.cpp  -o src/ship.o
+g++ -std=c++20 -pedantic -Wall -Wextra -g `sdl2-config --libs --cflags` -lSDL2_image -Iinclude -c src/sprite_component.cpp  -o src/sprite_component.o
+g++ -std=c++20 -pedantic -Wall -Wextra -g `sdl2-config --libs --cflags` -lSDL2_image -Iinclude -o output/main src/actor.o src/animated_sprite_component.o src/bg_sprite_component.o src/component.o src/game.o src/main.o src/ship.o src/sprite_component.o  -Llib
+echo Executing 'all' complete!
+make: Leaving directory '/home/djose1164/game-programming-cpp/chapter-2'
+ 
