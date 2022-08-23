@@ -30,9 +30,8 @@ void BGSpriteComponent::update(const float &delta_time)
         bg.offset.x += delta_time * scroll_speed();
         // If this's completely off the screen, reset offset to the right of
         // last background texture
-        if (bg.offset.x <= -screen_size().x)
+        if (bg.offset.x < -screen_size().x)
             bg.offset.x = (bg_textures.size() - 1)*screen_size().x - 1;
-        
     }
 }
 
