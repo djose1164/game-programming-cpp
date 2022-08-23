@@ -47,27 +47,28 @@ void SpriteComponent::sprite_texture(SDL_Texture *texture)
 
 void SpriteComponent::draw(SDL_Renderer *renderer)
 {
-    if (sprite_texture_)
-    {
-        SDL_Rect r;
+    if (!sprite_texture_)
+        return;
 
-        // Scale the width/height by owner's scale.
-        r.w = static_cast<int>(texture_width() * owner->scale());
-        r.h = static_cast<int>(texture_height() * owner->scale());
+    SDL_Rect r;
 
-        // Center the rect about the position of the owner
-        r.x = static_cast<int>(owner->position().x - r.w / 2);
-        r.y = static_cast<int>(owner->position().y - r.h / 2);
+    // Scale the width/height by owner's scale.
+    r.w = static_cast<int>(texture_width() * owner->scale());
+    r.h = static_cast<int>(texture_height() * owner->scale());
 
-        // Draw
-        SDL_RenderCopyEx(
-            renderer,
-            sprite_texture_,
-            nullptr,
-            &r,
-            -Math::ToDegrees(owner->rotation()),
-            nullptr,
-            SDL_FLIP_NONE
-        );
-    }
+    // Center the rect about the position of the owner
+    r.x = static_cast<int>(owner->position().x - r.w / 2);
+    r.y = static_cast<int>(owner->position().y - r.h / 2);
+
+    // Draw
+    SDL_RenderCopyEx(
+        renderer,
+        sprite_texture_,
+        nullptr,
+        &r,
+        -Math::ToDegrees(owner->rotation()),
+        nullptr,
+        SDL_FLIP_NONE
+    );
+    
 }
