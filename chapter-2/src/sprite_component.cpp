@@ -34,6 +34,7 @@ int SpriteComponent::texture_height() const
 
 void SpriteComponent::sprite_texture(SDL_Texture *texture)
 {
+    SDL_assert(texture);
     sprite_texture_ = texture;
     // Get width & height of texture.
     SDL_QueryTexture(

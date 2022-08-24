@@ -7,6 +7,7 @@
 
 Actor::Actor(Game *game)
     : state_{State::ACTIVE}
+    , action_{Action::WALKING}
     , position_(Vector2(0.f, 0.f))
     , scale_{1.f}
     , rotation_{0.f}
@@ -66,6 +67,16 @@ void Actor::remove_component(Component *component)
 Actor::State Actor::state() const
 {
     return state_;
+}
+
+const Actor::Action &Actor::action() const
+{
+    return action_;
+}
+
+void Actor::action(Action action)
+{
+    action_ = action;
 }
 
 void Actor::scale(float scale)

@@ -6,7 +6,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Mon Aug 22 22:39:43 2022
+# Make data base, printed on Wed Aug 24 11:07:38 2022
 
 # Variables
 
@@ -95,7 +95,7 @@ MAKEFILE_LIST := Makefile
 # automatic
 @F = $(notdir $@)
 # environment
-VSCODE_PID = 23374
+VSCODE_PID = 21543
 # environment
 MOZ_ENABLE_WAYLAND = 1
 # environment
@@ -105,7 +105,7 @@ XDG_SESSION_TYPE = x11
 # makefile (from 'Makefile', line 48)
 INCLUDES := -Iinclude
 # environment
-SESSION_MANAGER = local/electronix:@/tmp/.ICE-unix/1229,unix/electronix:/tmp/.ICE-unix/1229
+SESSION_MANAGER = local/electronix:@/tmp/.ICE-unix/1253,unix/electronix:/tmp/.ICE-unix/1253
 # automatic
 *F = $(notdir $*)
 # environment
@@ -153,7 +153,7 @@ LC_TIME = es_DO.UTF-8
 # makefile (from 'Makefile', line 38)
 MAIN := main
 # environment
-INVOCATION_ID = e96d7b24e145454caab1755928805cb0
+INVOCATION_ID = a467b70c120644e287f42b2df4fd4245
 # makefile (from 'Makefile', line 41)
 LIBDIRS := lib
 # environment
@@ -173,7 +173,7 @@ DESKTOP_SESSION = gnome-xorg
 # environment
 ORIGINAL_XDG_CURRENT_DESKTOP = GNOME
 # makefile (from 'Makefile', line 57)
-OBJECTS := src/actor.o src/animated_sprite_component.o src/bg_sprite_component.o src/component.o src/game.o src/main.o src/ship.o src/sprite_component.o
+OBJECTS := src/actor.o src/animated_sprite_component.o src/bg_sprite_component.o src/character.o src/component.o src/game.o src/main.o src/ship.o src/sprite_component.o
 # 'override' directive
 GNUMAKEFLAGS := 
 # environment
@@ -183,7 +183,7 @@ GIO_LAUNCHED_DESKTOP_FILE = /usr/share/applications/visual-studio-code.desktop
 # makefile
 .DEFAULT_GOAL := all
 # environment
-SYSTEMD_EXEC_PID = 1244
+SYSTEMD_EXEC_PID = 1271
 # makefile (from 'Makefile', line 43)
 RM = rm -f
 # environment
@@ -199,11 +199,11 @@ MAKE_VERSION := 4.3
 # makefile (from 'Makefile', line 42)
 FIXPATH = $1
 # environment
-MANAGERPID = 1081
+MANAGERPID = 1105
 # environment
 LC_MEASUREMENT = es_DO.UTF-8
 # environment
-GIO_LAUNCHED_DESKTOP_FILE_PID = 23357
+GIO_LAUNCHED_DESKTOP_FILE_PID = 21526
 # makefile (from 'Makefile', line 39)
 SOURCEDIRS := src
 # environment
@@ -213,7 +213,7 @@ LC_PAPER = es_DO.UTF-8
 # environment
 XDG_RUNTIME_DIR = /run/user/1000
 # environment
-JOURNAL_STREAM = 8:23299
+JOURNAL_STREAM = 8:25750
 # environment
 XDG_SESSION_CLASS = user
 # environment
@@ -247,7 +247,7 @@ CXX = g++
 # makefile (from 'Makefile', line 15)
 LFLAGS = 
 # makefile (from 'Makefile', line 54)
-SOURCES := src/actor.cpp src/animated_sprite_component.cpp src/bg_sprite_component.cpp src/component.cpp src/game.cpp src/main.cpp src/ship.cpp src/sprite_component.cpp
+SOURCES := src/actor.cpp src/animated_sprite_component.cpp src/bg_sprite_component.cpp src/character.cpp src/component.cpp src/game.cpp src/main.cpp src/ship.cpp src/sprite_component.cpp
 # environment
 XDG_MENU_PREFIX = gnome-
 # environment
@@ -263,10 +263,10 @@ LC_IDENTIFICATION = es_DO.UTF-8
 
 # Directories
 
-# src (device 2054, inode 4984837): 18 files, no impossibilities.
-# . (device 2054, inode 4982755): 9 files, no impossibilities.
+# src (device 2054, inode 4984837): 20 files, no impossibilities.
+# . (device 2054, inode 4982755): 10 files, no impossibilities.
 
-# 27 files, no impossibilities in 2 directories.
+# 30 files, no impossibilities in 2 directories.
 
 # Implicit Rules
 
@@ -277,7 +277,7 @@ LC_IDENTIFICATION = es_DO.UTF-8
 # Not a target:
 src/component.o:
 #  Implicit rule search has been done.
-#  Last modified 2022-08-22 21:16:34.452624213
+#  Last modified 2022-08-24 09:27:28.642358186
 #  File has been updated.
 #  Successfully updated.
 
@@ -291,14 +291,14 @@ Makefile:
 # Not a target:
 src/actor.o:
 #  Implicit rule search has been done.
-#  Last modified 2022-08-22 22:32:34.865214138
+#  Last modified 2022-08-24 09:27:22.372504158
 #  File has been updated.
 #  Successfully updated.
 
 # Not a target:
 src/game.o:
 #  Implicit rule search has been done.
-#  Last modified 2022-08-22 21:45:58.208302085
+#  Last modified 2022-08-24 09:27:31.415627113
 #  File has been updated.
 #  Successfully updated.
 
@@ -315,7 +315,7 @@ clean:
 # Not a target:
 src/sprite_component.o:
 #  Implicit rule search has been done.
-#  Last modified 2022-08-22 22:20:54.450334585
+#  Last modified 2022-08-24 09:27:37.972141901
 #  File has been updated.
 #  Successfully updated.
 
@@ -329,21 +329,21 @@ src/sprite_component.o:
 # Not a target:
 src/animated_sprite_component.o:
 #  Implicit rule search has been done.
-#  Last modified 2022-08-22 22:13:44.973375561
+#  Last modified 2022-08-24 10:12:21.294540449
 #  File has been updated.
 #  Successfully updated.
 
 # Not a target:
 src/bg_sprite_component.o:
 #  Implicit rule search has been done.
-#  Last modified 2022-08-22 21:36:36.045721212
+#  Last modified 2022-08-24 09:27:25.702426569
 #  File has been updated.
 #  Successfully updated.
 
 # Not a target:
 src/main.o:
 #  Implicit rule search has been done.
-#  Last modified 2022-08-22 21:16:39.675768359
+#  Last modified 2022-08-24 09:27:33.582243531
 #  File has been updated.
 #  Successfully updated.
 
@@ -355,7 +355,7 @@ src/main.o:
 
 output:
 #  Implicit rule search has not been done.
-#  Last modified 2022-08-22 22:32:34.88521398
+#  Last modified 2022-08-24 10:32:04.488677527
 #  File has been updated.
 #  Successfully updated.
 #  recipe to execute (from 'Makefile', line 71):
@@ -380,7 +380,7 @@ run: all
 	./$(OUTPUTMAIN)
 	@echo Executing 'run: all' complete!
 
-main: src/actor.o src/animated_sprite_component.o src/bg_sprite_component.o src/component.o src/game.o src/main.o src/ship.o src/sprite_component.o
+main: src/actor.o src/animated_sprite_component.o src/bg_sprite_component.o src/character.o src/component.o src/game.o src/main.o src/ship.o src/sprite_component.o
 #  Implicit rule search has not been done.
 #  Implicit/static pattern stem: ''
 #  File does not exist.
@@ -393,19 +393,26 @@ main: src/actor.o src/animated_sprite_component.o src/bg_sprite_component.o src/
 # automatic
 # < := src/actor.o
 # automatic
-# + := src/actor.o src/animated_sprite_component.o src/bg_sprite_component.o src/component.o src/game.o src/main.o src/ship.o src/sprite_component.o
+# + := src/actor.o src/animated_sprite_component.o src/bg_sprite_component.o src/character.o src/component.o src/game.o src/main.o src/ship.o src/sprite_component.o
 # automatic
 # % := 
 # automatic
-# ^ := src/actor.o src/animated_sprite_component.o src/bg_sprite_component.o src/component.o src/game.o src/main.o src/ship.o src/sprite_component.o
+# ^ := src/actor.o src/animated_sprite_component.o src/bg_sprite_component.o src/character.o src/component.o src/game.o src/main.o src/ship.o src/sprite_component.o
 # automatic
-# ? := src/actor.o src/animated_sprite_component.o src/bg_sprite_component.o src/component.o src/game.o src/main.o src/ship.o src/sprite_component.o
+# ? := src/actor.o src/animated_sprite_component.o src/bg_sprite_component.o src/character.o src/component.o src/game.o src/main.o src/ship.o src/sprite_component.o
 # automatic
 # | := 
 # variable set hash-table stats:
 # Load=8/32=25%, Rehash=0, Collisions=4/18=22%
 #  recipe to execute (from 'Makefile', line 74):
 	$(CXX) $(CXXFLAGS) $(INCLUDES) -o $(OUTPUTMAIN) $(OBJECTS) $(LFLAGS) $(LIBS)
+
+# Not a target:
+src/character.o:
+#  Implicit rule search has been done.
+#  Last modified 2022-08-24 10:32:04.465343773
+#  File has been updated.
+#  Successfully updated.
 
 # Not a target:
 .SUFFIXES:
@@ -421,24 +428,24 @@ main: src/actor.o src/animated_sprite_component.o src/bg_sprite_component.o src/
 # Not a target:
 src/ship.o:
 #  Implicit rule search has been done.
-#  Last modified 2022-08-22 22:27:19.330469498
+#  Last modified 2022-08-24 09:27:35.875523742
 #  File has been updated.
 #  Successfully updated.
 
 # files hash-table stats:
-# Load=18/1024=2%, Rehash=0, Collisions=2/45=4%
+# Load=19/1024=2%, Rehash=0, Collisions=2/47=4%
 # VPATH Search Paths
 
 # No 'vpath' search paths.
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 43 / storage = 514 B / avg = 11 B
-# current buf: size = 8162 B / used = 514 B / count = 43 / avg = 11 B
+# strcache buffers: 1 (0) / strings = 47 / storage = 572 B / avg = 12 B
+# current buf: size = 8162 B / used = 572 B / count = 47 / avg = 12 B
 
-# strcache performance: lookups = 64 / hit rate = 32%
+# strcache performance: lookups = 68 / hit rate = 30%
 # hash-table stats:
-# Load=43/8192=1%, Rehash=0, Collisions=0/64=0%
-# Finished Make data base on Mon Aug 22 22:39:44 2022
+# Load=47/8192=1%, Rehash=0, Collisions=0/68=0%
+# Finished Make data base on Wed Aug 24 11:07:38 2022
 
  

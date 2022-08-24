@@ -86,7 +86,7 @@ private:
 
     std::unordered_map<std::string, SDL_Texture *> game_textures;
 
-    class Ship *ship_;
+    class Character *character_;
 };
 
 #endif // GAME_H

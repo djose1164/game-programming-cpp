@@ -1,6 +1,6 @@
 #include "game.h"
 #include "sprite_component.h"
-#include "ship.h"
+#include "character.h"
 #include "bg_sprite_component.h"
 
 #include <algorithm>
@@ -90,7 +90,7 @@ void Game::process_input()
     if (state[SDL_SCANCODE_ESCAPE])
         running_ = false;
     
-    ship_->process_keyboard(state);
+    character_->process_keyboard(state);
 }
 
 void Game::update()
@@ -173,9 +173,9 @@ SDL_Texture *Game::get_texture(const std::string &file_name)
 
 void Game::load_data()
 {
-    ship_ = new Ship(this);
-    ship_->position(Vector2(100.f, 384.f));
-    ship_->scale(1.5f);
+    character_ = new Character(this);
+    character_->position(Vector2(100.f, 384.f));
+    character_->scale(1.5f);
 
     // Create actor for the background
     auto tmp = new Actor(this);

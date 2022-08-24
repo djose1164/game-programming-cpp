@@ -15,7 +15,7 @@ public:
     virtual void draw(SDL_Renderer *renderer);
 
     /**
-     * @brief Setup `texture_width_` and `texture_height_`.
+     * @brief Setup texture.
      * 
      * @param texture Texture to get its dimensions.
      */

@@ -14,11 +14,22 @@ public:
         DEAD
     };
 
+    enum class Action
+    {
+        WALKING,
+        JUMPING,
+        PUNCH
+    };
+
     Actor(class Game *game);
 
     virtual ~Actor();
 
     State state() const;
+
+    const Action &action() const;
+
+    void action(Action action);
 
     // Update function called from game (not overridable)
     void update(const float &delta_time);
@@ -49,6 +60,7 @@ public:
 
 private:
     State state_;
+    Action action_;
 
     Vector2 position_; // Center position of actor.
 

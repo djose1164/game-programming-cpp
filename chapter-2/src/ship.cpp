@@ -14,7 +14,6 @@ Ship::Ship(Game *game)
         game->get_texture("assets/Ship03.png"),
         game->get_texture("assets/Ship04.png")
    };
-    SDL_Log("sprite_texture.size(): %zu", animations.size());
    asc->animated_textures(animations);
 }
 
