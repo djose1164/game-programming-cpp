@@ -76,7 +76,7 @@ public:
      *
      * @param key_state Array of key states.
      */
-    void actor_input(const uint8_t *key_state);
+    virtual void actor_input(const uint8_t *key_state);
 
     /**
      * @brief Set actor's state.

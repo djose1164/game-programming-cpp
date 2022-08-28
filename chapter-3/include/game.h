@@ -34,7 +34,7 @@ public:
 
     /**
      * @brief Initialize the game. Call this always after instantiation.
-     * 
+     *
      * @return true If initialization was successful.
      * @return false If initialization failed.
      */
@@ -74,6 +74,9 @@ public:
 
     void add_asteroid(Asteroid *asteroid);
     void remove_asteroid(Asteroid *asteroid);
+
+    std::vector<Asteroid *> &asteroids();
+    const std::vector<Asteroid *> &asteroids() const;
 
     unsigned screen_width() const;
     unsigned screen_height() const;

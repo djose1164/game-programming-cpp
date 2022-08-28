@@ -3,6 +3,7 @@
 #include "game.h"
 #include "components/sprite_component.h"
 #include "components/move_component.h"
+#include "components/circle_component.h"
 
 Asteroid::Asteroid(Game *game_)
     : Actor{game_}
@@ -24,10 +25,23 @@ Asteroid::Asteroid(Game *game_)
     auto mv = new MoveComponent(this);
     mv->forward_speed(150.f);
 
+    circle_ = new CircleComponent(this);
+    circle_->radius(40.f);
+
     game()->add_asteroid(this);
 }
 
 Asteroid::~Asteroid()
 {
     game()->remove_asteroid(this);
+}
+
+CircleComponent *Asteroid::circle()
+{
+    return circle_;
+}
+
+const CircleComponent *Asteroid::circle() const
+{
+    return circle_;
 }

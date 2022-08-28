@@ -3,6 +3,7 @@
 #include "actors/actor.h"
 #include "components/sprite_component.h"
 #include "actors/asteroid.h"
+#include "actors/ship.h"
 
 #include <SDL2/SDL_image.h>
 #include <algorithm>
@@ -141,6 +142,12 @@ void Game::render()
 void Game::load_data()
 {
     SDL_Log("Loading data into game...");
+    ship_ = new Ship(this);
+    ship_->position(
+        Vector2(screen_width()/2.f, screen_height()/2.f)
+    );
+    ship_->rotation(Math::PiOver2);
+
     constexpr size_t num_asteroid{15};
     for (size_t i{0}; i < num_asteroid; ++i)
         new Asteroid(this);
@@ -258,6 +265,16 @@ void Game::remove_asteroid(Asteroid *asteroid)
     )};
     if (iter != asteroids_.end())
         asteroids_.erase(iter);
+}
+
+std::vector<Asteroid *> &Game::asteroids()
+{
+    return asteroids_;
+}
+
+const std::vector<Asteroid *> &Game::asteroids() const
+{
+    return asteroids_;
 }
 
 unsigned Game::screen_width() const
