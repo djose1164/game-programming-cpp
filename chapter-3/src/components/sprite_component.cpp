@@ -53,7 +53,6 @@ void SpriteComponent::set_texture(SDL_Texture *texture)
         &texture_width_,
         &texture_height_
     );
-    SDL_Log("Texture set!");
 }
 
 int SpriteComponent::draw_order() const

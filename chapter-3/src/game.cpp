@@ -21,7 +21,6 @@ Game::Game()
 
 bool Game::initialize()
 {
-    SDL_Log("Initializing game...");
     if (SDL_Init(SDL_INIT_VIDEO | SDL_INIT_AUDIO) != 0) // Can init SDL
     {
         SDL_Log("Unable to initialize SDL: %s", SDL_GetError());
@@ -141,14 +140,13 @@ void Game::render()
 
 void Game::load_data()
 {
-    SDL_Log("Loading data into game...");
     ship_ = new Ship(this);
     ship_->position(
         Vector2(screen_width()/2.f, screen_height()/2.f)
     );
     ship_->rotation(Math::PiOver2);
 
-    constexpr size_t num_asteroid{15};
+    constexpr size_t num_asteroid{20};
     for (size_t i{0}; i < num_asteroid; ++i)
         new Asteroid(this);
     SDL_Log("Data loaded into game!");
@@ -206,8 +204,6 @@ void Game::add_sprite(SpriteComponent *sprite)
             break;
     
     sprites_.insert(iter, sprite);
-    SDL_Log("sprites_.size(): %zu", sprites_.size());
-
 }
 
 void Game::remove_sprite(SpriteComponent *sprite)
@@ -252,8 +248,6 @@ SDL_Texture *Game::get_texture(const std::string &filename)
 void Game::add_asteroid(Asteroid *asteroid)
 {
     asteroids_.emplace_back(asteroid);
-    SDL_Log("asteroids_.size(): %zu", asteroids_.size());
-
 }
 
 void Game::remove_asteroid(Asteroid *asteroid)
